@@ -1,4 +1,4 @@
-console.log('this is sayan');
+console.log('Devoloped by Sayan');
 shownotes();
 let addbtn = document.getElementById('addbtn');
 addbtn.addEventListener("click", function (e) {
@@ -14,7 +14,6 @@ addbtn.addEventListener("click", function (e) {
     notesobj.push(addtext.value);
     localStorage.setItem("notes", JSON.stringify(notesobj));
     addtext.value = "";
-    console.log(notesobj);
     shownotes();
 })
 function shownotes() {
@@ -63,7 +62,6 @@ function deletenote(index) {
 let search = document.getElementById('search');
 search.addEventListener("input", function () {
     let inputval = search.value.toLowerCase();
-    console.log('input event fired!',inputval);
     let notecard = document.getElementsByClassName('notecard');
     Array.from(notecard).forEach(function (element) {
         let cardtext = element.getElementsByTagName("p")[0].innerText;
@@ -74,7 +72,5 @@ search.addEventListener("input", function () {
             element.style.display = "none";
         }
 
-       
-       // console.log(cardtext);
     })
 })
