@@ -30,7 +30,7 @@ function shownotes() {
 
         html += ` 
        
-       <div class="card  my-2 mx-2 bg-dark" style="width: 18rem;">
+       <div class="card  my-2 mx-2 bg-dark notecard" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">Note ${index + 1}</h5><hr id="hr">
           <p class="card-text">${element}</p>
@@ -62,15 +62,15 @@ function deletenote(index) {
 }
 let search = document.getElementById('search');
 search.addEventListener("input", function () {
-    let inuputval = search.value;
-    console.log('input event fired!',inuputval);
-    let notecard = document.getElementsByClassName('card');
+    let inputval = search.value.toLowerCase();
+    console.log('input event fired!',inputval);
+    let notecard = document.getElementsByClassName('notecard');
     Array.from(notecard).forEach(function (element) {
-        let cardtext = element.getElementsByTagName("p")[0];
-        if (cardtext.includes(inuputval)){
+        let cardtext = element.getElementsByTagName("p")[0].innerText;
+        if(cardtext.includes(inputval)){
             element.style.display = "block";
         }
-        else {
+        else{
             element.style.display = "none";
         }
 
